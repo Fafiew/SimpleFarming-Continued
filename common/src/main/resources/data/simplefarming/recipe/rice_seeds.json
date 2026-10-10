@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "simplefarming:rice"
+    }
+  ],
+  "result": {
+    "id": "simplefarming:rice_seeds"
+  },
+  "category": "misc"
+}

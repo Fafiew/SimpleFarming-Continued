@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "RBR"
+  ],
+  "key": {
+    "R": {
+      "tag": "forge:crops/broccoli"
+    },
+    "B": {
+      "item": "minecraft:cooked_beef"
+    }
+  },
+  "result": {
+    "id": "simplefarming:beef_and_broccoli"
+  },
+  "category": "misc"
+}

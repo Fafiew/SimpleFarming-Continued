@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "simplefarming:noodles"
+    },
+    {
+      "item": "simplefarming:noodles"
+    },
+    {
+      "tag": "forge:crops/tomato"
+    }
+  ],
+  "result": {
+    "id": "simplefarming:spaghetti"
+  },
+  "category": "misc"
+}
