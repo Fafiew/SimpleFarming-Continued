@@ -72,41 +72,6 @@ On Fabric the mod's creative tab is reached with the page arrows (`<` / `>`) nex
 
 Just Enough Items is optional on every loader and is never required at runtime (JEI 19.57.0.451 or newer for 1.21.1). When JEI is present it shows the mod's items and a Fermenter recipe category with input, output, transfer and catalyst support. When JEI is absent the mod launches and plays normally; no JEI classes are loaded. JEI is declared as an *optional, client-side* dependency in each loader's metadata and is never bundled in the released jars.
 
-## 🔨 Building
-
-Requirements: **JDK 21**.
-
-```bash
-# Build all three distributions
-./gradlew buildAll
-
-# ...or one at a time
-./gradlew :forge:build
-./gradlew :neoforge:build
-./gradlew :fabric:build
-
-# Build everything and copy the shippable jars into build/libs
-./gradlew collectJars
-```
-
-Output artifacts (in `build/libs`) use a consistent naming convention:
-
-```
-simplefarmingcontinued-<version>-forge-1.21.1.jar
-simplefarmingcontinued-<version>-neoforge-1.21.1.jar
-simplefarmingcontinued-<version>-fabric-1.21.1.jar
-```
-
-Each jar contains only its own loader's metadata (`META-INF/mods.toml`, `META-INF/neoforge.mods.toml` or `fabric.mod.json`) and only the world-gen data for that loader.
-
-### Development runs
-
-```bash
-./gradlew :forge:runClient     # or :forge:runServer
-./gradlew :neoforge:runClient
-./gradlew :fabric:runClient
-```
-
 ## 🗂️ Project layout
 
 ```
