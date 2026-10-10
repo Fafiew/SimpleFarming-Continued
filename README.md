@@ -52,11 +52,7 @@ This is an independent continuation and is not an official release of the origin
 
 ## 📦 Compatibility
 
-All three distributions share the same content, recipes, tags, loot tables, world generation and registry identifiers. There are no separate gameplay implementations — loader-specific code is limited to initialisation, registration glue and world-gen injection.
-
-| Minecraft | Forge | NeoForge | Fabric |
-|-----------|-------|----------|--------|
-| 1.21.1    | yes   | yes      | yes    |
+Simple Farming: Continued is available for **Minecraft 1.21.1** on **Forge**, **NeoForge** and **Fabric**. All distributions share the same content, so the experience is identical whichever loader you play on.
 
 A normal install needs **only Minecraft 1.21.1 and the relevant mod loader**:
 
@@ -64,23 +60,8 @@ A normal install needs **only Minecraft 1.21.1 and the relevant mod loader**:
 - **NeoForge 1.21.1** — NeoForge 21.1.0 or newer.
 - **Fabric 1.21.1** — Fabric Loader 0.16.5 or newer.
 
-**Fabric API is not required** and there is no dependency on Architectury or any other compatibility library. The Fabric build implements resource-pack mounting and world-gen injection directly against the vanilla / Fabric Loader APIs. Fabric API is an *optional* dependency: when it is installed the mod defers creative-tab paging to Fabric API's item-group module, and when it is absent the mod provides that paging itself.
+No extra compatibility libraries are required. Just Enough Items (JEI) is optional and never required; when installed it shows the mod's items and recipes.
 
-On Fabric the mod's creative tab is reached with the page arrows (`<` / `>`) next to the creative inventory's search box; vanilla 1.21.1 fills every tab slot, so a second page is provided. Forge and NeoForge paginate the tab list natively, so no extra step is needed there.
-
-### Optional: JEI
-
-Just Enough Items is optional on every loader and is never required at runtime (JEI 19.57.0.451 or newer for 1.21.1). When JEI is present it shows the mod's items and a Fermenter recipe category with input, output, transfer and catalyst support. When JEI is absent the mod launches and plays normally; no JEI classes are loaded. JEI is declared as an *optional, client-side* dependency in each loader's metadata and is never bundled in the released jars.
-
-## 🗂️ Project layout
-
-```
-common/    shared, loader-agnostic source (content, recipes, resources, JEI plugin)
-forge/     Forge entrypoint, init and world-gen data (forge:add_features)
-neoforge/  NeoForge entrypoint, init and world-gen data (neoforge:add_features)
-fabric/    Fabric entrypoint, resource-pack mounting, code-based world-gen injection
-```
-
-The `common` sources are compiled into each loader's source set with that loader's mappings. World generation differs by loader: Forge and NeoForge use data-driven biome modifiers, while Fabric rebuilds biome generation settings in code (Fabric has no biome modifier facility without Fabric API). Because the underlying world-gen data differs per loader, terrain is not seed-for-seed identical across loaders.
+On Fabric the mod's creative tab is reached with the page arrows (`<` / `>`) next to the creative inventory's search box; Forge and NeoForge paginate the tab list natively, so no extra step is needed there.
 
 Thank you for helping keep Simple Farming growing!
