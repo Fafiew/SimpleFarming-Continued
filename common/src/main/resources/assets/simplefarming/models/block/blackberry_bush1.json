@@ -1,6 +1,0 @@
-{
-  "parent": "simplefarming:block/berry_bush",
-  "textures": {
-    "berries": "simplefarming:block/blackberries1"
-  }
-}

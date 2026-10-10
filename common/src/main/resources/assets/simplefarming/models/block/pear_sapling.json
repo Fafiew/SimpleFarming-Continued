@@ -1,6 +1,0 @@
-{
-  "parent": "simplefarming:block/cross",
-  "textures": {
-    "cross": "simplefarming:block/pear_sapling"
-  }
-}
