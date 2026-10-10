@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "simplefarming:honeydew"
+    }
+  },
+  "result": {
+    "id": "simplefarming:honeydew_block"
+  },
+  "category": "misc"
+}

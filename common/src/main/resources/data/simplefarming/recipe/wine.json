@@ -1,0 +1,10 @@
+{
+  "type": "simplefarming:fermenting",
+  "ingredient": {
+    "tag": "forge:fruits/grapes"
+  },
+  "result": {
+    "id": "simplefarming:wine"
+  },
+  "category": "misc"
+}

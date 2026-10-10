@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "tag": "forge:fruits/cherries"
+    },
+    {
+      "tag": "forge:eggs"
+    },
+    {
+      "item": "minecraft:sugar"
+    }
+  ],
+  "result": {
+    "id": "simplefarming:cherry_pie"
+  },
+  "category": "misc"
+}

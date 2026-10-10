@@ -1,0 +1,10 @@
+{
+  "type": "simplefarming:fermenting",
+  "ingredient": {
+    "tag": "forge:fruits/apple"
+  },
+  "result": {
+    "id": "simplefarming:cider"
+  },
+  "category": "misc"
+}

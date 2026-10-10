@@ -1,4 +1,5 @@
 <a href="https://www.curseforge.com/minecraft/mc-mods/simple-farming"><img src="http://cf.way2muchnoise.eu/full_1735258_downloads.svg" /></a>
+<a href="https://modrinth.com/mod/simple-farming-continued"><img src="https://img.shields.io/modrinth/dt/simple-farming-continued?label=downloads&amp;logo=modrinth&amp;color=00AF5C" alt="Modrinth downloads" /></a>
 
 # Simple Farming: Continued
 
@@ -60,5 +61,51 @@ On Fabric the mod's creative tab is reached with the page arrows (`<` / `>`) nex
 ### Optional: JEI
 
 Just Enough Items is optional on every loader and is never required at runtime (JEI 19.57.0.451 or newer for 1.21.1). When JEI is present it shows the mod's items and a Fermenter recipe category with input, output, transfer and catalyst support. When JEI is absent the mod launches and plays normally; no JEI classes are loaded. JEI is declared as an *optional, client-side* dependency in each loader's metadata and is never bundled in the released jars.
+
+## 🔨 Building
+
+Requirements: **JDK 21**.
+
+```bash
+# Build all three distributions
+./gradlew buildAll
+
+# ...or one at a time
+./gradlew :forge:build
+./gradlew :neoforge:build
+./gradlew :fabric:build
+
+# Build everything and copy the shippable jars into build/libs
+./gradlew collectJars
+```
+
+Output artifacts (in `build/libs`) use a consistent naming convention:
+
+```
+simplefarmingcontinued-<version>-forge-1.21.1.jar
+simplefarmingcontinued-<version>-neoforge-1.21.1.jar
+simplefarmingcontinued-<version>-fabric-1.21.1.jar
+```
+
+Each jar contains only its own loader's metadata (`META-INF/mods.toml`, `META-INF/neoforge.mods.toml` or `fabric.mod.json`) and only the world-gen data for that loader.
+
+### Development runs
+
+```bash
+./gradlew :forge:runClient     # or :forge:runServer
+./gradlew :neoforge:runClient
+./gradlew :fabric:runClient
+```
+
+## 🗂️ Project layout
+
+```
+common/    shared, loader-agnostic source (content, recipes, resources, JEI plugin)
+forge/     Forge entrypoint, init and world-gen data (forge:add_features)
+neoforge/  NeoForge entrypoint, init and world-gen data (neoforge:add_features)
+fabric/    Fabric entrypoint, resource-pack mounting, code-based world-gen injection
+```
+
+The `common` sources are compiled into each loader's source set with that loader's mappings. World generation differs by loader: Forge and NeoForge use data-driven biome modifiers, while Fabric rebuilds biome generation settings in code (Fabric has no biome modifier facility without Fabric API). Because the underlying world-gen data differs per loader, terrain is not seed-for-seed identical across loaders.
 
 Thank you for helping keep Simple Farming growing!

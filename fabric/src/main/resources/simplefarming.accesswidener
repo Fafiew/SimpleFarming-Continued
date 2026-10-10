@@ -1,0 +1,22 @@
+accessWidener v2 named
+
+# The mod performs its own biome-generation injection on Fabric because there is no Fabric API
+# biome-modification facility available. It also needs a handful of vanilla members that Forge and
+# NeoForge already expose as public (so the shared, loader-agnostic sources compile everywhere).
+# Fabric Loader applies this widener natively; no API mod is required.
+
+# Biome injection: rebuild biome generation settings and the chunk-generator feature order.
+accessible field net/minecraft/world/level/biome/BiomeGenerationSettings features Ljava/util/List;
+mutable field net/minecraft/world/level/biome/BiomeGenerationSettings features Ljava/util/List;
+accessible field net/minecraft/world/level/chunk/ChunkGenerator featuresPerStep Ljava/util/function/Supplier;
+mutable field net/minecraft/world/level/chunk/ChunkGenerator featuresPerStep Ljava/util/function/Supplier;
+
+# Vanilla members that Forge/NeoForge widen but Fabric leaves package/protected.
+accessible field net/minecraft/world/entity/Mob goalSelector Lnet/minecraft/world/entity/ai/goal/GoalSelector;
+accessible method net/minecraft/client/gui/screens/MenuScreens register (Lnet/minecraft/world/inventory/MenuType;Lnet/minecraft/client/gui/screens/MenuScreens$ScreenConstructor;)V
+accessible method net/minecraft/world/inventory/MenuType <init> (Lnet/minecraft/world/inventory/MenuType$MenuSupplier;Lnet/minecraft/world/flag/FeatureFlagSet;)V
+accessible class net/minecraft/world/inventory/MenuType$MenuSupplier
+accessible method net/minecraft/world/level/levelgen/feature/foliageplacers/FoliagePlacerType <init> (Lcom/mojang/serialization/MapCodec;)V
+accessible method net/minecraft/world/level/block/SaplingBlock <init> (Lnet/minecraft/world/level/block/grower/TreeGrower;Lnet/minecraft/world/level/block/state/BlockBehaviour$Properties;)V
+accessible class net/minecraft/world/level/block/entity/BlockEntityType$BlockEntitySupplier
+accessible class net/minecraft/client/gui/screens/MenuScreens$ScreenConstructor

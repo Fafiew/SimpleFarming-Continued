@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "id": "simplefarming",
+  "version": "${version}",
+  "name": "Simple Farming: Continued",
+  "description": "An unofficial continuation of Simple Farming, bringing the original experience to newer Minecraft versions and additional mod loaders. No new features, just compatibility.",
+  "authors": [
+    "enemeez (original author of Simple Farming)",
+    "Fafiew aka FafaHima (multi-loader port)"
+  ],
+  "contact": {
+    "homepage": "https://modrinth.com/mod/simple-farming-continued",
+    "sources": "https://github.com/Fafiew/simplefarmingcontinued",
+    "issues": "https://github.com/Fafiew/simplefarmingcontinued/issues"
+  },
+  "license": "MIT",
+  "icon": "logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.enemeez.simplefarming.fabric.SimpleFarmingFabric"
+    ],
+    "client": [
+      "dev.enemeez.simplefarming.fabric.SimpleFarmingFabricClient"
+    ],
+    "jei_mod_plugin": [
+      "dev.enemeez.simplefarming.client.integration.JeiIntegration"
+    ]
+  },
+  "mixins": [
+    "simplefarming.mixins.json"
+  ],
+  "accessWidener": "simplefarming.accesswidener",
+  "depends": {
+    "fabricloader": ">=0.16.5",
+    "minecraft": "~1.21.1",
+    "java": ">=21"
+  },
+  "suggests": {
+    "jei": ">=19.57.0.451",
+    "fabric-api": "*"
+  }
+}

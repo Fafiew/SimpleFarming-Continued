@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "simplefarming:oat"
+    }
+  ],
+  "result": {
+    "id": "simplefarming:oat_seeds"
+  },
+  "category": "misc"
+}
